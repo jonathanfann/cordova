@@ -3,11 +3,15 @@ var express = require('express'),
     secrets = require('./config/index.js'),
     SpotifyWebApi = require('spotify-web-api-node'),
     nunjucks = require('nunjucks'),
-    path = require("path"),
-    app = express();
+    path = require('path'),
+    app = express(),
+    bodyParser = require('body-parser');
 
-app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
 app.set('view engine', 'html');
+
 nunjucks.configure(path.join(__dirname, 'static'), {
     autoescape: true,
     express: app
@@ -38,16 +42,26 @@ app.get('/', function (req, res) {
 })
 
 app.get('/landing', function (req, res) {
-    res.render('index.html');
+    res.render('index.html', { searched: false });
 })
 
-app.post('/search-artist', function(req, res) {
-    var artist = req.body.artist;
-    res.redirect('/search-artist/' + artist);
+app.post('/search-artist/', function(req, res) {
+    console.log(req.body);
+    res.redirect('/search-artist/' + req.body.artistname);
 });
 
 app.get('/search-artist/:artist', function (req, res) {
-    spotifyApi.getArtistAlbums('43ZHCT0cAZBISjO8DG9PnE').then(
+    spotifyApi.searchArtists(req.params.artist).then(
+        function(data) {
+            console.log(data);
+            console.log(data.body.artists);
+            res.render('index.html', { artists: data.body.artists, searched: true });
+        }
+    );
+})
+
+app.get('/artist/:id', function (req, res) {
+    spotifyApi.getArtistAlbums(req.params.id).then(
       function(data) {
         console.log('Artist albums', data.body);
         res.send(data.body);

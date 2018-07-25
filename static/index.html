@@ -1,10 +1,35 @@
 {% include "partials/header.html" %}
+{% block content %}
 
 <h1>Search by Artist Name</h1>
 
-<form name="searchArtist" action="/search-artist/" method="post">
-    <input type="text" id="artist" />
-    <button type="submit">search</button>
+<form action="/search-artist/" method="post">
+    <label for="artistname">Artist: </label>
+    <input id="nameOfArtist" type="text" name="artistname" value="Thrice">
+    <input type="submit" value="submit">
 </form>
+
+{% if artists %}
+    {% for a in artists.items %}
+        <div class="artistspicker" style="background-image:url('{{ a.images[0].url }}'); background-attachment:fixed; background-size:cover; background-position: center center; background-repeat:no-repeat; text-align:center; width:100%; min-height:500px;">
+            <a href="/artist/{{ a.id }}" style="background:rgba(20,20,20,0.5); color:white; padding:20px; display:block;">
+                <h2>{{ a.name }}</h2>
+                <p>
+                    {% for genre in a.genres %}
+                        <span id="{{ genre }}" style="background:rgba(0,0,0,0.2); color:white;">{{ genre }}</span>
+                        {% if not loop.last %}&nbsp;{% endif %}
+                    {% endfor %}
+                </p>
+            </a>
+        </div>
+        {% if not loop.last %}
+        <hr />
+        {% endif %}
+    {% endfor %}
+{% elif searched %}
+    <p>No results found</p>
+{% endif %}
+
+{% endblock %}
 
 {% include "partials/footer.html" %}
