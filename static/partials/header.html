@@ -5,23 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>spotify online searching</title>
     <style>
-        html, h1, button, p, body, li, ul, span {
+        html, body, h1, h2, h3, h4, h5, h6, div, button, p, a, ul, li, b, i, strong, em, span, pre {
           text-align:center;
           font-family:monospace !important;
           color:black;
         }
-        button#submit {
-          cursor:pointer;
-          border:0px;
-          box-shadow:none;
-          background:blue;
-          color:white;
-          border-radius:0;
-          padding:20px;
-          font-size:20px;
-          width:200px;
-          outline:none !Important;
+        html, body, header {
+            margin:0;
+            padding:0;
+            width:100%;
+        }
+        a#logoish {
+            display:block;
+            text-decoration:none;
+            cursor:pointer;
+            border:0px;
+            box-shadow:none;
+            background:MediumAquamarine;
+            color:FloralWhite;
+            border-radius:0;
+            padding:20px 0;
+            font-size:20px;
+            width:100%;
+            outline:none !Important;
+            transition:background ease-in-out 0.2s;
+        }
+        a#logoish:hover, a#logoish:active, a#logoish:focus {
+            background:Turquoise;
         }
     </style>
   </head>
   <body>
+      <header>
+          <a id="logoish" href="/landing">
+              spotify web search
+          </a>
+      </header>
