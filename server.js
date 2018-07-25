@@ -6,6 +6,7 @@ var express = require('express'),
     path = require("path"),
     app = express();
 
+app.use(express.json());
 app.set('view engine', 'html');
 nunjucks.configure(path.join(__dirname, 'static'), {
     autoescape: true,
@@ -40,7 +41,12 @@ app.get('/landing', function (req, res) {
     res.render('index.html');
 })
 
-app.get('/elvis', function (req, res) {
+app.post('/search-artist', function(req, res) {
+    var artist = req.body.artist;
+    res.redirect('/search-artist/' + artist);
+});
+
+app.get('/search-artist/:artist', function (req, res) {
     spotifyApi.getArtistAlbums('43ZHCT0cAZBISjO8DG9PnE').then(
       function(data) {
         console.log('Artist albums', data.body);

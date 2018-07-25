@@ -1,4 +1,10 @@
 {% include "partials/header.html" %}
-<h1>You successfully authenticated, brother</h1>
+
+<h1>Search by Artist Name</h1>
+
+<form name="searchArtist" action="/search-artist/" method="post">
+    <input type="text" id="artist" />
+    <button type="submit">search</button>
+</form>
 
 {% include "partials/footer.html" %}
