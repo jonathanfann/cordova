@@ -7,11 +7,36 @@
     <hr />
     <h1>
         {% for artist in album.body.artists %}
-            {{ artist.name }}{% if not loop.last %}, {% endif %}
+
+                {{ artist.name }}
+                <a class="muted" href="{{ artist.external_urls['spotify'] target="_blank" }}">
+                    <small>
+                        view on spotify
+                    </small>
+                </a>
+            {% if not loop.last %}<span class="comma">, </span>{% endif %}
         {% endfor %}
     </h1>
-    <h2>{{ album.body.name }}</h2>
+    <h2>
+        {{ album.body.name }}
+        <a class="muted" href="{{ artist.external_urls['spotify'] target="_blank" }}">
+            <small>
+                view on spotify
+            </small>
+        </a>
+    </h2>
     <h3>{{ album.body.label }}</h3>
+    <img style="float:right; max-width:100%; width:400px;" id="albumart" src="{{ album.body.images[0].url }}"/>
+    <p>
+        <small>
+            {% for c in album.body.copyrights %}
+                {{ c.text }}
+                {% if not loop.last %}
+                    <span class="comma">, </span>
+                {% endif %}
+            {% endfor %}
+        </small>
+    </p>
 </div>
 {% endblock %}
 {% block content %}
@@ -39,14 +64,14 @@
                             {{ item.duration_ms | formatMilliseconds }}
                         </td>
                         <td>
-                            <a href="{{ item.external_urls['Spotify'] }}" target="_blank">
+                            <a href="{{ item.external_urls['spotify'] }}" target="_blank">
                                 Listen
                             </a>
                     </tr>
                 {% endfor %}
             {% else %}
                 <tr>
-                    <td colspan="3">
+                    <td colspan="4">
                         &hellip; Nothing found &hellip;
                     </td>
                 </tr>
