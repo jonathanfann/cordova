@@ -6,9 +6,11 @@
     <title>spotify online searching</title>
     <style>
         html, body, h1, h2, h3, h4, h5, h6, div, button, p, a, ul, li, b, i, strong, em, span, pre {
-          text-align:center;
           font-family:monospace !important;
           color:black;
+        }
+        .center {
+            text-align:center;
         }
         html, body, header {
             margin:0;
@@ -97,14 +99,24 @@
         .artistspicker p {
             font-size:20px;
         }
-        [class^="drilldown-"] {
-            text-align:left !important;
+        table {
+            width:100%;
+        }
+        th, td {
+            text-align:left;
+            padding:8px;
+            margin:0;
+            border-right:1px solid #eee;
+        }
+        table > thead > tr > th {
+            background:#f6f6f7;
+            font-weight:bold;
         }
     </style>
   </head>
   <body>
       <header>
-          <a id="logoish" href="/landing">
+          <a class="center" id="logoish" href="/landing">
               spotify web search
           </a>
       </header>

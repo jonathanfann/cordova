@@ -1,7 +1,7 @@
 {% extends 'index.html' %}
 {% block search %}
 <div class="drilldown-top">
-    <p id="back">
+    <p class="center" id="back">
         <a href="/">&larr; Search Artist</a>
     </p>
     <hr />
@@ -16,15 +16,13 @@
 {% endblock %}
 {% block content %}
 <div class="drilldown-bottom">
-    <p>
-        Tracks:
-    </p>
     <table>
         <thead>
             <tr>
                 <th>Track #</th>
                 <th>Name</th>
-                <th>Other Info</th>
+                <th>Length</th>
+                <th>Spotify Link</th>
             </tr>
         </thead>
         <tbody>
@@ -38,8 +36,12 @@
                             {{ item.name }}
                         </td>
                         <td>
-                            {{ item | dump }}
+                            {{ item.duration_ms / 60 }} min
                         </td>
+                        <td>
+                            <a href="{{ item.external_urls['Spotify'] }}" target="_blank">
+                                Listen
+                            </a>
                     </tr>
                 {% endfor %}
             {% else %}
