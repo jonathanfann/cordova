@@ -1,3 +1,3 @@
-# README #
+# Spotify Search App #
 
-I am close to having functional code.
+(in progress)
