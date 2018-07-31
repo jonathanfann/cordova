@@ -1,0 +1,51 @@
+{% extends 'index.html' %}
+{% block search %}
+    <p id="back">
+        <a href="/">&larr; Search Artist</a>
+    </p>
+    <hr />
+    <h1>
+        {% for artist in album.body.artists %}
+            {{ artist.name }}{% if not loop.last %}, {% endif %}
+        {% endfor %}
+    </h1>
+    <h2>{{ album.body.name }}</h2>
+    <h3>{{ album.body.label }}</h3>
+{% endblock %}
+{% block content %}
+<p>
+    Tracks:
+</p>
+<table>
+    <thead>
+        <tr>
+            <th>Track #</th>
+            <th>Name</th>
+            <th>Other Info</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if body.items %}
+            {% for item in body.items %}
+                <tr id="{{ item.id }}">
+                    <td>
+                        {{ item.track_number }}
+                    </td>
+                    <td>
+                        {{ item.name }}
+                    </td>
+                    <td>
+                        {{ item }}
+                    </td>
+                </tr>
+            {% endfor %}
+        {% else %}
+            <tr>
+                <td colspan="3">
+                    &hellip; Nothing found &hellip;
+                </td>
+            </tr>
+        {% endif %}
+    </tbody>
+</table>
+{% endblock %}

@@ -53,9 +53,9 @@ app.post('/search-artist/', function(req, res) {
 app.get('/search-artist/:artist', function (req, res) {
     spotifyApi.searchArtists(req.params.artist).then(
         function(data) {
-            console.log(data);
+            console.log(data.body);
             console.log(data.body.artists);
-            res.render('index.html', { artists: data.body.artists, searched: true });
+            res.render('index.html', { artists: data.body.artists, searched: true, query: req.params.artist });
         }
     );
 })
@@ -71,6 +71,30 @@ app.get('/artist/:id', function (req, res) {
       }
     );
 })
+
+app.get('/album/:id', function (req, res) {
+    spotifyApi.getAlbum(req.params.id).then(function(album) {
+        spotifyApi.getAlbumTracks(req.params.id, { limit: 50 })
+          .then(function(data) {
+              console.log(data.body, req.params, album);
+            res.render('drilldown.html', { body: data.body, params: req.params, album: album });
+          }, function(err) {
+            console.log('Something went wrong!', err);
+          });
+    })
+
+})
+
+app.get('/track/:id', function (req, res) {
+    /* Get Audio Features for a Track */
+    spotifyApi.getAudioFeaturesForTrack(req.params.id)
+      .then(function(data) {
+        console.log(data.body);
+      }, function(err) {
+        done(err);
+      });
+})
+
 
 
 app.listen(8888);

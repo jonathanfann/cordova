@@ -33,6 +33,32 @@
         a#logoish:hover, a#logoish:active, a#logoish:focus {
             background:Turquoise;
         }
+        #content {
+            width:800px;
+            max-width:100%;
+            margin:0 auto 20px;
+        }
+        #thesearcher {
+            margin-bottom:20px;
+        }
+        input {
+            border:1px solid black;
+            outline:none !Important;
+            font-family: monospace;
+            font-size:14px;
+            padding:5px;
+            border-radius:0;
+        }
+        input[type="submit"] {
+            transition:background ease-in-out 0.2s;
+            background:MediumAquamarine;
+            border-color:Turquoise;
+            color:white;
+        }
+        input[type="submit"]:hover, input[type="submit"]:active, input[type="submit"]:focus {
+            background:Turquoise;
+        }
+
         a {
             color:MediumAquamarine;
             text-decoration:none;
@@ -48,7 +74,14 @@
             background:#000;
         }
         .artistspicker {
+            width:100%;
             position:relative;
+            height:400px;
+            /* background-attachment:fixed; */
+            background-size:cover;
+            background-position: center center;
+            background-repeat:no-repeat;
+            text-align:center;
         }
         .artistspicker hr {
             background:FloralWhite;

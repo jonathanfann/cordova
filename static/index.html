@@ -1,35 +1,40 @@
 {% include "partials/header.html" %}
-{% block content %}
 
-<h1>Search by Artist Name</h1>
+    <div id="content">
+        {% block search %}
+        <h1>Search by Artist Name</h1>
 
-<form action="/search-artist/" method="post">
-    <label for="artistname">Artist: </label>
-    <input id="nameOfArtist" type="text" name="artistname" value="Thrice">
-    <input type="submit" value="submit">
-</form>
-
-{% if artists %}
-    {% for a in artists.items %}
-        <div class="artistspicker" style="background-image:url('{{ a.images[0].url }}'); background-attachment:fixed; background-size:cover; background-position: center center; background-repeat:no-repeat; text-align:center; width:100%; min-height:500px;">
-            <a href="/artist/{{ a.id }}" style="background:rgba(20,20,20,0.5); color:white; padding:20px; display:block;">
-                <h2>{{ a.name }}</h2>
-                <p>
-                    {% for genre in a.genres %}
-                        <span id="{{ genre }}" style="background:rgba(0,0,0,0.2); color:white;">{{ genre }}</span>
-                        {% if not loop.last %}&nbsp;{% endif %}
-                    {% endfor %}
-                </p>
-            </a>
-        </div>
-        {% if not loop.last %}
-        <hr />
-        {% endif %}
-    {% endfor %}
-{% elif searched %}
-    <p>No results found</p>
-{% endif %}
-
-{% endblock %}
+        <form id="thesearcher" action="/search-artist/" method="post">
+            <label for="artistname">Artist: </label>
+            <input id="nameOfArtist" type="text" name="artistname">
+            <input type="submit" value="submit">
+        </form>
+        {% endblock %}
+        {% block content %}
+            {% if query %}
+                <p><strong>Results for Artist Name '{{ query }}'</strong></p>
+            {% endif %}
+            {% if artists %}
+                {% for a in artists.items %}
+                    <div class="artistspicker" style="background-image:url('{{ a.images[0].url }}');">
+                        <a href="/artist/{{ a.id }}" style="background:rgba(20,20,20,0.5); color:white; display:block;">
+                            <h2 style="padding-top:20px; color:FloralWhite !important;">{{ a.name }}</h2>
+                            <p style="color:FloralWhite !important;">
+                                {% for genre in a.genres %}
+                                    <span id="{{ genre }}" style="background:rgba(0,0,0,0.2); color:white;">{{ genre }}</span>
+                                    {% if not loop.last %}&nbsp;{% endif %}
+                                {% endfor %}
+                            </p>
+                        </a>
+                    </div>
+                    {% if not loop.last %}
+                    <hr />
+                    {% endif %}
+                {% endfor %}
+            {% elif searched %}
+                <p>No results found</p>
+            {% endif %}
+        {% endblock %}
+    </div>
 
 {% include "partials/footer.html" %}
