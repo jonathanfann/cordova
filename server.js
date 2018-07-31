@@ -5,6 +5,8 @@ var express = require('express'),
     nunjucks = require('nunjucks'),
     path = require('path'),
     app = express(),
+    moment = require('moment'),
+    momentDurationFormatSetup = require('moment-duration-format');
     bodyParser = require('body-parser');
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -12,10 +14,18 @@ app.use(bodyParser.json());
 
 app.set('view engine', 'html');
 
-nunjucks.configure(path.join(__dirname, 'static'), {
-    autoescape: true,
-    express: app
-});
+function setupNunjucks(expressApp) {
+    var env = nunjucks.configure(path.join(__dirname, 'static'), {
+        autoescape: true,
+        express: app
+    });
+    env.addFilter('formatMilliseconds', function(ms) {
+        return moment.duration(ms, 'milliseconds').format("mm:ss");
+    });
+}
+
+setupNunjucks(app);
+
 
 var spotifyApi = new SpotifyWebApi(
     {
