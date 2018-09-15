@@ -1,0 +1,53 @@
+{% extends 'index.html' %}
+{% block search %}
+<div class="drilldown-top">
+    <p class="center" id="back">
+        <a href="/">&larr; Search Artist</a>
+    </p>
+    <hr />
+    {% for item in body.items|sort(attribute='release_date') %}
+        <!-- TODO: make this endpoint return the name instead of this hack -->
+        <pre></pre>
+        {% if loop.first %}
+            <h1>{{ item.artists[0].name }}</h1>
+        {% endif %}
+            <table style="background:linear-gradient(#fff, #eee);">
+                <thead>
+                    <tr>
+                        <th style="width:80%;" colspan="2">
+                            Album
+                        </th>
+                        <th style="width:20%;">
+                            Available Mkts
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="width:50%;">
+                            <a class="blah" href="/album/{{ item.id }}">
+                                <strong style="font-size:20px;">{{ item.name }}</strong> 
+                                <br />
+                                <em>{{ item.release_date }}</em>
+                                <br />
+                                {{ item.total_tracks }} tracks
+                            </a>
+                        </td>
+                        <td style="width: 30%">
+                            <a class="able-bodied-hover" href="/album/{{ item.id }}">
+                                <img src="{{ item.images[0].url }}" style="width:100%; height:auto;" />
+                            </a>
+                        </td>
+                        <td style="width:20%;">
+                            <small>
+                                {% for m in item.available_markets %}
+                                    {{ m }}{% if not loop.last %}, {% endif %}
+                                {% endfor %}
+                            </small>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    {% endfor %}
+</div>
+{% endblock %}

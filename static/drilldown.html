@@ -5,6 +5,8 @@
         <a href="/">&larr; Search Artist</a>
     </p>
     <hr />
+
+    <img style="float:right; max-width:100%; width:400px;" id="albumart" src="{{ album.body.images[0].url }}"/>
     <h1>
         {% for artist in album.body.artists %}
 
@@ -26,7 +28,6 @@
         </a>
     </h2>
     <h3>{{ album.body.label }}</h3>
-    <img style="float:right; max-width:100%; width:400px;" id="albumart" src="{{ album.body.images[0].url }}"/>
     <p>
         <small>
             {% for c in album.body.copyrights %}

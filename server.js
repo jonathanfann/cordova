@@ -74,7 +74,7 @@ app.get('/artist/:id', function (req, res) {
     spotifyApi.getArtistAlbums(req.params.id).then(
       function(data) {
         console.log('Artist albums', data.body);
-        res.send(data.body);
+        res.render('artist.html', { body: data.body, params: req.params });
       },
       function(err) {
         console.error(err);
@@ -87,23 +87,53 @@ app.get('/album/:id', function (req, res) {
         spotifyApi.getAlbumTracks(req.params.id, { limit: 50 })
           .then(function(data) {
               console.log(data.body, req.params, album);
-            res.render('drilldown.html', { body: data.body, params: req.params, album: album });
+            res.render('drilldown.html', { body: data.body, params: req.params, album: album, data_type: 'album' });
           }, function(err) {
-            console.log('Something went wrong!', err);
+            console.error('Something went wrong!', err);
           });
     })
 
 })
 
-app.get('/track/:id', function (req, res) {
-    /* Get Audio Features for a Track */
-    spotifyApi.getAudioFeaturesForTrack(req.params.id)
-      .then(function(data) {
-        console.log(data.body);
-      }, function(err) {
-        done(err);
-      });
-})
+// app.get('/album/:id', function(req, res) {
+//     spotifyApi.getAlbum(req.params.id).then(function(album) {
+//         spotifyApi.getAlbumTracks(req.params.id, {
+//                 limit: 50
+//             })
+//             .then(function(data) {
+//                 console.log(data.body, req.params, album);
+//                 return data.body.tracks.map(function(t) {
+//                     return t.id;
+//                 });
+//             })
+//             .then(function(trackIds) {
+//                 return spotifyApi.getTracks(trackIds);
+//             })
+//             .then(function(data) {
+//                 console.log(data.body);
+//                 res.render('drilldown.html', {
+//                     body: data.body,
+//                     params: req.params,
+//                     album: album,
+//                     data_type: 'album'
+//                 });
+//             })
+//     }, function(err) {
+//         console.error('Something went wrong!', err);
+//     });
+//
+// })
+
+// app.get('/track/:id', function (req, res) {
+//     /* Get Audio Features for a Track */
+//     spotifyApi.getAudioFeaturesForTrack(req.params.id)
+//         .then(function(data) {
+//             console.log(data.body, req.params, album);
+//           res.render('drilldown.html', { body: data.body, params: req.params, album: album, data_type: 'song' });
+//         }, function(err) {
+//           console.error('Something went wrong!', err);
+//         });
+// })
 
 
 
