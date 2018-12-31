@@ -35,28 +35,39 @@ var spotifyApi = new SpotifyWebApi(
     }
 );
 
-app.get('/', function (req, res) {
+var tokenExpires = null;
+var getToken = function() {
     spotifyApi.clientCredentialsGrant()
     .then(function(data) {
-      console.log('The access token expires in ' + data.body['expires_in']);
-      console.log('The access token is ' + data.body['access_token']);
-
-      // Save the access token so that it's used in future calls
-      spotifyApi.setAccessToken(data.body['access_token']);
-      let accessToken = data.body['access_token'];
-      res.redirect('/landing');
+        tokenExpires = data.body['expires_in'];
+        console.log('The access token expires in ' + data.body['expires_in']);
+        console.log('The access token is ' + data.body['access_token']);
+        // Save the access token so that it's used in future calls
+        spotifyApi.setAccessToken(data.body['access_token']);
+        let accessToken = data.body['access_token'];
+        res.redirect('/landing');
     }, function(err) {
-      console.log('Something went wrong when retrieving an access token', err.message);
+        console.log('Something went wrong when retrieving an access token', err.message);
     });
+}
 
+app.get('/', function (req, res) {
+    if (!tokenExpires) {
+        getToken();
+    }
 })
 
 app.get('/landing', function (req, res) {
+    if (!tokenExpires) {
+        getToken();
+    }
     res.render('index.html', { searched: false });
 })
 
 app.post('/search-artist/', function(req, res) {
-    console.log(req.body);
+    if (!tokenExpires) {
+        getToken();
+    }
     res.redirect('/search-artist/' + req.body.artistname);
 });
 

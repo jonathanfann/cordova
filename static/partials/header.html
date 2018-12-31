@@ -23,17 +23,19 @@
             cursor:pointer;
             border:0px;
             box-shadow:none;
-            background:MediumAquamarine;
+            background:linear-gradient(Turquoise, MediumAquamarine);
             color:FloralWhite;
             border-radius:0;
             padding:20px 0;
             font-size:20px;
             width:100%;
             outline:none !Important;
-            transition:background ease-in-out 0.2s;
+            border-bottom: 5px solid Turquoise;
+            transition:color ease-in-out 0.2s, border-color ease-in 0.3s;
         }
         a#logoish:hover, a#logoish:active, a#logoish:focus {
-            background:Turquoise;
+            color:black;
+            border-bottom-color: black;
         }
         #content {
             width:800px;
