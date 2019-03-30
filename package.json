@@ -1,15 +1,13 @@
 {
-  "name": "spotifynew",
+  "name": "Cordova",
   "version": "1.0.0",
-  "description": "thing to do things with spotify",
+  "description": "Cordova Painting Nunjucks Site",
   "main": "server.js",
   "dependencies": {
     "express": "^4.15.4",
-    "moment": "^2.22.2",
-    "moment-duration-format": "^2.2.2",
+    "fs": "0.0.1-security",
     "nunjucks": "^3.1.3",
-    "request": "^2.81.0",
-    "spotify-web-api-node": "^3.1.1"
+    "path": "^0.12.7"
   },
   "devDependencies": {},
   "scripts": {

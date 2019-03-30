@@ -3,6 +3,7 @@ node_modules
 config
 
 # OS generated files #
+.git
 .DS_Store
 .DS_Store?
 ._*
