@@ -1,0 +1,36 @@
+html {
+    background: #fff;
+}
+
+/*
+ *  BRANDING
+ *  green: #2bb459;
+ *  dark_green: #209848;
+ *  orange: #f26d53;
+*/
+
+#navbar {
+    height: 120px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background: #2bb459;
+    z-index: 4;
+    text-align: center;
+}
+
+#logo {
+    position: relative;
+    height: 130px;
+    margin: 0;
+    transition: all ease-in 0.3s;
+}
+
+#logo:hover, #logo:active, #logo:focus {
+    text-decoration: none;
+    margin-top: -5px;
+}
+
+.body {
+    margin-top: 140px;
+}

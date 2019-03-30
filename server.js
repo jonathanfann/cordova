@@ -8,8 +8,6 @@ const express = require('express'),
 
 globalz.currentYearFromDate = new Date().getFullYear();
 
-console.log(globalz);
-
 app.set('view engine', 'html');
 
 function setupNunjucks(expressApp) {
@@ -25,6 +23,8 @@ app.get('/', function(req, res) {
     res.render('index.html');
 });
 
+app.use('/assets', express.static(path.join(__dirname, 'assets')))
+
 app.get('/:route', function(req, res) {
     var file = path.join(__dirname, static, req.params.route + '.html');
     if (fs.existsSync(file)) {
@@ -33,3 +33,6 @@ app.get('/:route', function(req, res) {
         res.render('404.html');
     }
 });
+
+app.listen(8888);
+console.log('running on port 8888');
