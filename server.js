@@ -3,10 +3,7 @@ const express = require('express'),
     app = express(),
     path = require('path'),
     fs = require('fs'),
-    static = 'static',
-    globalz = require('nunjucks/src/globals');
-
-globalz.currentYearFromDate = new Date().getFullYear();
+    static = 'static';
 
 app.set('view engine', 'html');
 

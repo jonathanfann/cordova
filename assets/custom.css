@@ -37,11 +37,11 @@ html {
     padding-top: 120px;
 }
 
-.parent-landing {
+/* .parent-landing {
     background-image: url('/assets/img/a-22.jpg');
     background-attachment: fixed;
     background-size: cover;
-}
+} */
 
 /* .homepageItemParent {
     background-image: url('/assets/img/a-22.jpg');
@@ -82,4 +82,17 @@ html {
 
 .homepageItem.homepageItem2, .homepageItem.homepageItem4 {
     background: linear-gradient(#fff, #eee);
+}
+
+#footer {
+    padding: 40px 20px;
+    background: #f26d53;
+    color: #fff;
+    font-family: 'Aleo', Arial, sans-serif;
+    font-weight: 300;
+    font-style: italic;
+}
+
+#copyright {
+    margin: 0;
 }
