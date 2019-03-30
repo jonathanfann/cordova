@@ -1,7 +1,47 @@
 {% include "partials/header.html" %}
-<div class="body">
+<div class="body {{ bodyClass }}">
 {% block content %}
-    <p>First Page Stuff</p>
+    <div class="homepageItem homepageItem1">
+        <div class="row">
+            <div class="col-sm-7 col-xs-12">
+                <h1>
+                    Cordova Painting is a family owned business founded by Levi Cordova in 2013.
+                    Levi has over 17 years of experience in the painting and remodeling industry.
+                    He gained his experience by working for many well-known companies in the painting
+                    and remodeling industry.
+                </h1>
+                <hr />
+                <h1>
+                    Levi now manages a crew of 16 team members with experience in the field of interior and
+                    exterior painting, drywall repair, carpentry, powerwashing among other home remodeling services.
+                    Levi has maintained the same team members for many years, which is essential to a successful business.
+                </h1>
+            </div>
+            <div class="col-sm-5">
+                <img src="/assets/img/a-1.jpg" />
+            </div>
+        </div>
+    </div>
+    <div class="homepageItem homepageItem2">
+        <div class="row">
+            <div class="col-sm-7 col-xs-12">
+                <img src="/assets/img/a-25.jpg" />
+            </div>
+            <div class="col-sm-5 col-xs-12">
+                <h1>Levi maintains a relationship with many loyal clients due to his ability
+                    to earn clients’ trust by explaining every step of the process and the first class level of
+                    service provided by Levi and his team of painters. Levi treats every project as if he is
+                    working on his own home; with respect and attention to detail.
+                </h1>
+                <hr />
+                <h1>
+                    Let Cordova Painting turn your home into the beautiful oasis you desire.
+                    <br />
+                    <a href="/contact">Contact Us Today</a>
+                </h1>
+            </div>
+        </div>
+    </div>
 {% endblock %}
 </div>
 {% include "partials/footer.html" %}

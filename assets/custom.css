@@ -1,13 +1,15 @@
-html {
-    background: #fff;
-}
-
+@import url('https://fonts.googleapis.com/css?family=Aleo:300,300i,700,700i');
 /*
  *  BRANDING
  *  green: #2bb459;
  *  dark_green: #209848;
  *  orange: #f26d53;
 */
+
+html {
+    background: #fff;
+    font-family: 'Aleo', Arial, sans-serif;
+}
 
 #navbar {
     height: 120px;
@@ -32,5 +34,52 @@ html {
 }
 
 .body {
-    margin-top: 140px;
+    padding-top: 120px;
+}
+
+.parent-landing {
+    background-image: url('/assets/img/a-22.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+/* .homepageItemParent {
+    background-image: url('/assets/img/a-22.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    height: calc(100vh - 120px);
+    overflow-y: scroll;
+    position: relative;
+} */
+
+[class^="col-sm-"] img {
+    width: 100%;
+}
+
+.homepageItem {
+    background-size: cover;
+    background-attachment: fixed;
+    width: 100vw;
+    height: auto;
+    padding: 50px;
+}
+
+.homepageItem h1 {
+    margin: 0;
+    text-align: left;
+    padding: 20px;
+    line-height: 32px;
+    font-size: 22px;
+    font-family: 'Aleo', Arial, sans-serif;
+    font-weight: 300;
+    font-style: italic;
+    color: black;
+}
+
+.homepageItem.homepageItem1, .homepageItem.homepageItem3 {
+    background: linear-gradient(#fff, #eee);
+}
+
+.homepageItem.homepageItem2, .homepageItem.homepageItem4 {
+    background: linear-gradient(#fff, #eee);
 }

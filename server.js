@@ -20,7 +20,7 @@ function setupNunjucks(expressApp) {
 setupNunjucks(app);
 
 app.get('/', function(req, res) {
-    res.render('index.html');
+    res.render('index.html', { bodyClass: 'parent-landing' });
 });
 
 app.use('/assets', express.static(path.join(__dirname, 'assets')))
@@ -28,9 +28,9 @@ app.use('/assets', express.static(path.join(__dirname, 'assets')))
 app.get('/:route', function(req, res) {
     var file = path.join(__dirname, static, req.params.route + '.html');
     if (fs.existsSync(file)) {
-        res.render(req.params.route + '.html');
+        res.render(req.params.route + '.html', { bodyClass: req.params.route });
     } else {
-        res.render('404.html');
+        res.render('404.html', { bodyClass: '404' });
     }
 });
 
