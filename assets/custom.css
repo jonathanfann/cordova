@@ -96,3 +96,15 @@ html {
 #copyright {
     margin: 0;
 }
+
+#cta {
+    margin-top: 10px;
+    display: inline-block;
+    text-decoration: none !important;
+    transition: border-bottom-color linear 0.3s, color linear 0.3s;
+    border-bottom: 1px solid transparent;
+}
+
+#cta:hover, #cta:active, #cta:focus {
+    border-bottom-color: #0056b3;
+}
