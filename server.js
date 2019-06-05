@@ -27,7 +27,7 @@ app.get('/:route', function(req, res) {
     if (fs.existsSync(file)) {
         res.render(req.params.route + '.html', { bodyClass: req.params.route });
     } else {
-        res.render('404.html', { bodyClass: '404' });
+        res.render('404.html', { bodyClass: 'notfound' });
     }
 });
 

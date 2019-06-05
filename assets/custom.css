@@ -6,35 +6,47 @@
  *  orange: #f26d53;
 */
 
-html {
-    background: #fff;
+html, body {
     font-family: 'Aleo', Arial, sans-serif;
+    background: #209848;
 }
 
 #navbar {
-    height: 120px;
+    height: 90px;
     width: 100%;
-    position: fixed;
+    position: absolute;
     top: 0;
     background: #2bb459;
     z-index: 4;
-    text-align: center;
+    padding: 0 40px;
+    overflow-y: hidden;
 }
 
 #logo {
     position: relative;
-    height: 130px;
-    margin: 0;
-    transition: all ease-in 0.3s;
+    height: 110px;
+    top: -20px;
+    transition: all ease-in 0.4s;
 }
 
 #logo:hover, #logo:active, #logo:focus {
     text-decoration: none;
-    margin-top: -5px;
+    top: -5px;
 }
 
 .body {
-    padding-top: 120px;
+    min-height: calc(100vh - 104px);
+    background: linear-gradient(#fff, #eee);
+    padding-top: 90px;
+}
+
+.body.notfound > .container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.body.notfound > .container > *:last-child {
+    margin-bottom: 0 !important;
 }
 
 /* .parent-landing {
