@@ -6,6 +6,12 @@
         <script>
             // get current year for footer so always up-to-date
             document.getElementById("year").innerHTML = new Date().getFullYear();
+            if (window.location.href) {
+                if (window.location.href.indexOf('services') != -1) {
+                    var d = document.getElementById('services');
+                    d.className += "active";
+                }
+            }
         </script>
     </body>
 </html>

@@ -1,14 +1,29 @@
-@import url('https://fonts.googleapis.com/css?family=Aleo:300,300i,700,700i');
+@import url('https://fonts.googleapis.com/css?family=Aleo:300,300i|Barlow+Condensed:400,700&display=swap');
 /*
  *  BRANDING
  *  green: #2bb459;
  *  dark_green: #209848;
+ *  even_darker_green: #0e632b;
  *  orange: #f26d53;
 */
 
 html, body {
     font-family: 'Aleo', Arial, sans-serif;
     background: #209848;
+}
+
+a, a:hover, a:focus, a:active {
+    color: #f26d53;
+}
+
+h1 {
+    font-family: 'Barlow Condensed';
+    font-weight: 400;
+    font-size: 70px;
+    text-transform: uppercase;
+    color: #0e632b;
+    /* color: #fff; */
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
 }
 
 #navbar {
@@ -26,6 +41,19 @@ html, body {
     line-height: 90px;
     color: #fff;
     margin-right: 40px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid transparent;
+    transition: all ease-in-out 0.2s;
+}
+
+#navbar .pages a:hover, #navbar .pages a:active, #navbar .pages a:focus {
+    text-decoration: none;
+    border-bottom-color: #fff !important;
+}
+
+#navbar .pages a.active {
+    border-bottom-color: rgba(255, 255, 255, 0.5);
 }
 
 #navbar .pages a:last-child {
@@ -44,20 +72,43 @@ html, body {
     top: -5px;
 }
 
+h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(40, 40, 40, 0.1);
+}
+
 .body {
     min-height: calc(100vh - 104px);
     background: linear-gradient(#fff, #eee);
     padding-top: 90px;
 }
 
-.body.notfound > .container {
-    padding-top: 20px;
+.body.notfound h1 {
+    margin-bottom: 20px;
+}
+
+.body > .container {
+    padding-top: 40px;
     padding-bottom: 20px;
 }
 
 /* keep view from having problems and make it real nice 100vh body */
 .body > .container > *:last-child {
     margin-bottom: 0 !important;
+}
+
+ul > li {
+    font-size: 20px;
+    line-height: 32px;
+    color: #000;
+}
+
+ul > li > small {
+    color: #888;
+    font-size: 18px;
+    font-style: italic;
 }
 
 /* .parent-landing {
@@ -130,4 +181,10 @@ html, body {
 
 #cta:hover, #cta:active, #cta:focus {
     border-bottom-color: #0056b3;
+}
+
+@media screen and (max-width: 575px) {
+    ul {
+        margin-bottom: 0 !important;
+    }
 }
