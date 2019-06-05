@@ -14,12 +14,22 @@ html, body {
 #navbar {
     height: 90px;
     width: 100%;
-    position: absolute;
+    position: fixed;
     top: 0;
     background: #2bb459;
     z-index: 4;
     padding: 0 40px;
     overflow-y: hidden;
+}
+
+#navbar .pages a {
+    line-height: 90px;
+    color: #fff;
+    margin-right: 40px;
+}
+
+#navbar .pages a:last-child {
+    margin-right: 0;
 }
 
 #logo {
@@ -45,7 +55,8 @@ html, body {
     padding-bottom: 20px;
 }
 
-.body.notfound > .container > *:last-child {
+/* keep view from having problems and make it real nice 100vh body */
+.body > .container > *:last-child {
     margin-bottom: 0 !important;
 }
 

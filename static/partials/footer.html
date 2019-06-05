@@ -1,7 +1,11 @@
         <div id="footer">
             <p id="copyright">
-                &copy; Cordova Painting
+                &copy; <span id="year">2019</span> Cordova Painting
             </p>
         </div>
+        <script>
+            // get current year for footer so always up-to-date
+            document.getElementById("year").innerHTML = new Date().getFullYear();
+        </script>
     </body>
 </html>
