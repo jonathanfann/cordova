@@ -1,0 +1,22 @@
+{% extends 'index.html' %} {% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-12 text-center">
+            <div class="pagestuffs">
+                <h1>Gallery</h1>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+    {% for n in range(1, 46) -%}
+        <div class="col-sm-6">
+            <img src="/assets/img/gallery/a-{{ n }}.jpg" />
+        </div>
+    {% if (n%2 === 0) and (n !== 46) %}
+    </div>
+    <div class="row">
+    {% endif %}
+    {%- endfor %}
+    </div>
+</div>
+{% endblock %}

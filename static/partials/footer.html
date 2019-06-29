@@ -6,10 +6,14 @@
         <script>
             // get current year for footer so always up-to-date
             document.getElementById("year").innerHTML = new Date().getFullYear();
+            // mark top nav item as active if it's the current page
+            var topNavItems = ['services', 'gallery', 'contact'];
             if (window.location.href) {
-                if (window.location.href.indexOf('services') != -1) {
-                    var d = document.getElementById('services');
-                    d.className += "active";
+                for (let t of topNavItems) {
+                    if (window.location.href.indexOf(t) !== -1) {
+                        var el = document.getElementById(t);
+                        el.className += "active";
+                    }
                 }
             }
         </script>

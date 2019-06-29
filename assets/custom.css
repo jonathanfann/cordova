@@ -12,6 +12,10 @@ html, body {
     background: #209848;
 }
 
+.body {
+    overflow-x: hidden;
+}
+
 a, a:hover, a:focus, a:active {
     color: #f26d53;
 }
@@ -20,9 +24,11 @@ h1 {
     font-family: 'Barlow Condensed';
     font-weight: 400;
     font-size: 70px;
+}
+
+.pagestuffs h1 {
     text-transform: uppercase;
     color: #0e632b;
-    /* color: #fff; */
     text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
 }
 
@@ -183,8 +189,53 @@ ul > li > small {
     border-bottom-color: #0056b3;
 }
 
+.contact .pagestuffs {
+    margin: 0 auto;
+    max-width: 600px;
+}
+
+.phone-numbers {
+    font-size: 20px;
+    line-height: 40px;
+}
+
+.phone-numbers h3 {
+    line-height: 40px;
+    border: none;
+    font-size: 40px;
+    font-family: 'Barlow Condensed';
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: black;
+}
+
+.body.gallery > .container {
+    padding-bottom: 60px;
+}
+
+.body.gallery > .container > .row{
+    margin-bottom: 30px;
+}
+
 @media screen and (max-width: 575px) {
+    /* xs breakpoint */
     ul {
         margin-bottom: 0 !important;
+    }
+    h1 {
+        text-align: center !important;
+    }
+    #navbar {
+        height: 70px;
+        padding: 0 5px;
+    }
+    #navbar .pages a {
+        line-height: 70px;
+        font-size: 14px;
+        margin-right: 10px;
+    }
+    #logo {
+        top: -10px;
+        height: 90px;
     }
 }
