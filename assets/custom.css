@@ -267,6 +267,12 @@ ul > li > small {
         top: -10px;
         height: 90px;
     }
+    h3 {
+        font-size: 18px;
+    }
+    ul > li {
+        font-size: 17px;
+    }
     .contact .pagestuffs h3 {
         text-align: center;
     }
