@@ -223,11 +223,30 @@ ul > li > small {
 
 @media screen and (max-width: 575px) {
     /* xs breakpoint */
+    .body {
+        padding-top: 45px;
+    }
     ul {
         margin-bottom: 0 !important;
     }
     h1 {
         text-align: center !important;
+    }
+    .parent-landing h1 {
+        text-align: left !important;
+        font-size: 18px;
+        padding-bottom: 0;
+    }
+    .parent-landing hr {
+        display: none !important;
+    }
+    .parent-landing img {
+        display: block;
+        margin: 20px auto 0;
+        max-width: 90%;
+    }
+    .parent-landing .homepageItem2 img {
+        margin-top: 0;
     }
     #navbar {
         height: 70px;

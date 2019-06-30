@@ -32,4 +32,4 @@ app.get('/:route', function(req, res) {
 });
 
 app.listen(process.env.PORT || 8888);
-console.log('running on port' + process.env.PORT ? process.env.PORT : '8888');
+console.log('running on port ' + (process.env.PORT ? process.env.PORT : '8888'));
