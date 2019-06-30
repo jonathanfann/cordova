@@ -189,14 +189,19 @@ ul > li > small {
     border-bottom-color: #0056b3;
 }
 
-.contact .pagestuffs {
-    margin: 0 auto;
-    max-width: 600px;
+.contact .pagestuffs h3 {
+    border: none;
+    margin-bottom: 0;
 }
 
-.phone-numbers {
+.phone-numbers h3 em {
+    margin-left: 10px;
+    margin-right: 10px;
     font-size: 20px;
     line-height: 40px;
+    position: relative;
+    top: -8px;
+    font-family: 'Aleo', Arial, sans-serif;
 }
 
 .phone-numbers h3 {
@@ -204,9 +209,8 @@ ul > li > small {
     border: none;
     font-size: 40px;
     font-family: 'Barlow Condensed';
-    font-weight: 700;
+    font-weight: 400;
     letter-spacing: 2px;
-    color: black;
 }
 
 .body.gallery > .container {
@@ -237,5 +241,15 @@ ul > li > small {
     #logo {
         top: -10px;
         height: 90px;
+    }
+    .contact .pagestuffs h3 {
+        text-align: center;
+    }
+    .phone-numbers h3 {
+        text-align: center;
+    }
+    .phone-number {
+        display: block;
+        margin-bottom: 10px;
     }
 }
