@@ -248,6 +248,12 @@ ul > li > small {
     .parent-landing .homepageItem2 img {
         margin-top: 0;
     }
+    .body.gallery > .container > .row {
+        margin-bottom: 0;
+    }
+    .body.gallery .row img {
+        margin-bottom: 20px;
+    }
     #navbar {
         height: 70px;
         padding: 0 5px;
