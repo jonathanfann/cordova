@@ -1,3 +1,3 @@
 # Cordova Painting #
 
-simple nunjucks express diddley for cordova painting (marketing website)
+simple nunjucks express website for cordova painting (marketing website)
