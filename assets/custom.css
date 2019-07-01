@@ -204,6 +204,10 @@ ul > li > small {
     font-family: 'Aleo', Arial, sans-serif;
 }
 
+.btn {
+    cursor: pointer;
+}
+
 .phone-numbers h3 {
     line-height: 40px;
     border: none;
