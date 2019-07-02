@@ -42,6 +42,8 @@
             </div>
         </div>
     </div>
+    <!-- this is to lazy load the "header" font so no flash on other pages if hit homepage first -->
+    <h1 style="position: absolute; z-index: -1; height: 1px; width: 1px; visibility: hidden;">&nbsp;</h1>
 {% endblock %}
 </div>
 {% include "partials/footer.html" %}
